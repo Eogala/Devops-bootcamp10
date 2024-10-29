@@ -89,3 +89,13 @@ The Makefile is used update the provisioned AWS EC2’s public IP address within
 The docker-compose.yml file incorporates various services Prometheus, Grafana, Node exporter & Alert Manager. These services are mapped with a network named ‘monitor‘ and have an ‘always‘ restart flag as well.
 
 
+## To do this project you need to have the following.
+
+1. A Valid AWS account with full permissions to create and manage AWS VPC service.
+2. Setup terraform on an ec2 instance, ensure you have a valid IAM role attached to the instance with VPC provisioning permissions.
+
+
+We are going to spin up an ec2 instance and attach the following IAM roles to it:
+
+- AmazonVPCFullAccess
+- AmazonEC2FullAccess
