@@ -383,25 +383,27 @@ Here is the demo.
 
 ![pic](img/Screenshot%20(709).png)
 
-![pic](img/Screenshot%20(710).png)
 
 
 Once the dashbaord template is imported, you should be able to see all the node exporter metrics as shown below.
 
+![pic](img/Screenshot%20(710).png)
 
-![pic](img)
 
 # Simulate & Test Alert Manager Alerts
 You can access the Alertmanager dashbaord on http://your-ip-address:9093
 
+![pic](img/Screenshot%20(711).png)
+
+
 ![pic](img)
-![alt text](<images/node exporter 5.png>)
+
 Alert rules are already backed in to the prometheus configuration through alertrules.yaml. If you go the alerts option in the prometheus menu, you will be able to see the configured alerts as shown below.
  http://your-ip-address:9090
 
-![pic](img)
+![pic](img/Screenshot%20(712).png)
 
-![pic](img)
+
 
 As you can see, all the alerts are in inactive stage. To test the alerts, we need to simulate these alerts using few linux utilities.
 
