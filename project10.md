@@ -226,3 +226,79 @@ terraform validate
 ![pic](img/Screenshot%20(676).png)
 
 ![pic](img/Screenshot%20(678).png)
+
+
+# CONNECT TO YOUR NEW INSTANCE 
+
+In previous projeect you've seen how to ssh into an instance
+
+![alt text](<images/connect 1.png>)
+
+![alt text](<images/connect 2.png>)
+
+- let's run the following command on our instance
+
+We will check the cloud-init logs to see if the user data script has run successfully.
+
+```
+tail /var/log/cloud-init-output.log
+```
+
+An example output is shown below. It should show Docker and Docker compose versions as highlighted in the image.
+
+
+![pic](img)
+
+Let’s verify the docker and docker-compose versions again.
+
+```
+sudo docker version
+
+```
+
+```
+sudo docker-compose version
+```
+![pic](img)
+
+
+Now that we have the instance ready with the required utilities, let’s deploy the Prometheus stack using docker-compose.
+
+# Deploy Prometheus Stack Using Docker Compose
+First, clone the project code repository to the server.
+```
+git clone https://github.com/TobiOlajumoke/prometheus-observability-stack
+```
+```
+cd prometheus-observability-stack
+```
+Execute the following make command to update server IP in prometheus config file. Because we are running the node exporter on the same server to fetch the server metrics. We also update the alert manager endpoint to the servers public IP address.
+```
+make all
+```
+You should see an output as shown below.
+![pic](img)
+
+## Bring up the stack using Docker Compose. It will deploy Prometheus, Alert manager, Node exporter and Grafana
+
+```
+sudo docker-compose up -d
+```
+
+On a successful execution, you should see the following output saying Running 5/5
+
+![pic](img)
+
+Now, with your servers IP address you can access all the apps on different ports.
+
+1. Prometheus: http://your-public-ip-address:9090
+2. Alert Manager: http://your-public-ip-address:9093
+3. Grafana: http://your-public-ip-address:3000
+4. Now the stack deployment is done. The rest of the configuration and testing will be done the using the GUI.
+
+# Validate Prometheus Node Exporter Metrics
+If you visit http://your-public-ip-address:9090, you will be able to access the Prometheus dashboard as shown below.
+
+Validate the targets, rules and configurations as shown below. The target would be Node exporter url.
+
+[text](README.md) ![text](images/prometheus1.png)
