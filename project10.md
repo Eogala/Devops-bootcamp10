@@ -26,3 +26,66 @@ In our setup, we will be using the following components.
 6. **Docker:** Docker is a platform for developing, shipping, and running applications in containers, which are lightweight and portable units that package an application and its dependencies. Docker ensures consistency across different environments, simplifies the deployment process, and isolates applications, making it easier to manage and scale.
 
 7. **Docker Compose:** Docker Compose is a tool for defining and running multi-container Docker applications using a simple YAML file. It allows users to configure application services, networks, and volumes, making it easy to deploy and manage multi-container environments by handling service dependencies and orchestration.
+# Spin up an Ubuntu 24.04 EC2 instance we shall be using it for this project
+
+Connect your instance via ssh
+
+
+Clone the project repository to your instance
+```
+git clone https://github.com/TobiOlajumoke/prometheus-observability-stack
+```
+The project code is present in the prometheus-observability-stack folder. cd into the folder.
+```
+cd prometheus-observability-stack
+```
+Note: Use visual studio code or relevant IDE to understand the code structure better.
+
+Here is the project structure and config files:
+```
+
+├── Makefile
+├── README.md
+├── alertmanager
+│   └── alertmanager.yml
+├── docker-compose.yml
+├── prometheus
+│   ├── alertrules.yml
+│   ├── prometheus.yml
+│   └── targets.json
+└── terraform-aws
+    ├── README.md
+    ├── modules
+    │   ├── ec2
+    │   │   ├── main.tf
+    │   │   ├── outputs.tf
+    │   │   ├── user-data.sh
+    │   │   └── variables.tf
+    │   └── security-group
+    │       ├── main.tf
+    │       ├── outputs.tf
+    │       └── variables.tf
+    ├── prometheus-stack
+    │   ├── main.tf
+    │   ├── outputs.tf
+    │   └── variables.tf
+    └── vars
+        └── ec2.tfvars
+```
+Let’s understand the project files.
+
+The alertmanager folder contains the alertmanager.yml file which is the configuration file. If you have details of the email, slack, etc. we can update accordingly.
+
+The prometheus folder contains alertrules.yml which is responsible for the alerts to be triggered from the prometheus to the alert manager. The prometheus.yml config is also mapped to the alert manager endpoint to fetch, Service discovery is used with the help of a file `file_sd_configs` to scrape the metrics using the targets.json file.
+
+terraform-aws directory allows you to manage and isolate resources effectively. modules contain the reusable terraform code. These contain the Terraform configuration files (main.tf, outputs.tf, variables.tf) for the respective modules.
+
+The ec2 module also includes user-data.sh script to bootstrap the EC2 instance with Docker and Docker Compose. The security group module will create all the inbound & outbound rules required.
+
+Prometheus-stack Contains the configuration file main.tf required for running the terraform. Vars contains an ec2.tfvars file which contains variable values specific to all the files for the terraform project.
+
+The Makefile is used update the provisioned AWS EC2’s public IP address within the configuration files of prometheus.yml and targets.json located in the prometheus directory.
+
+The docker-compose.yml file incorporates various services Prometheus, Grafana, Node exporter & Alert Manager. These services are mapped with a network named ‘monitor‘ and have an ‘always‘ restart flag as well.
+
+
