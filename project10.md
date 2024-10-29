@@ -439,8 +439,8 @@ cd prometheus-observability-stack/terraform-aws/prometheus-stack
 terraform destroy --var-file=../vars/ec2.tfvars
 ```
 enter 'yes'
-![pic](img)
+![pic](img/Screenshot%20(726).png)
 
-![pic](img)
+![pic](img/Screenshot%20(725).png)
 
 ## Terminate the  ec2 instances
