@@ -247,7 +247,7 @@ tail /var/log/cloud-init-output.log
 An example output is shown below. It should show Docker and Docker compose versions as highlighted in the image.
 
 
-![pic](img)
+![pic](img/Screenshot%20(721).png)
 
 Let’s verify the docker and docker-compose versions again.
 
@@ -259,7 +259,7 @@ sudo docker version
 ```
 sudo docker-compose version
 ```
-![pic](img)
+![pic](img/Screenshot%20(722).png)
 
 
 Now that we have the instance ready with the required utilities, let’s deploy the Prometheus stack using docker-compose.
@@ -277,7 +277,7 @@ Execute the following make command to update server IP in prometheus config file
 make all
 ```
 You should see an output as shown below.
-![pic](img)
+![pic](img/Screenshot%20(723).png)
 
 ## Bring up the stack using Docker Compose. It will deploy Prometheus, Alert manager, Node exporter and Grafana
 
@@ -287,7 +287,7 @@ sudo docker-compose up -d
 
 On a successful execution, you should see the following output saying Running 5/5
 
-![pic](img)
+![pic](img/Screenshot%20(724).png)
 
 Now, with your servers IP address you can access all the apps on different ports.
 
