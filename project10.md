@@ -99,3 +99,39 @@ We are going to spin up an ec2 instance and attach the following IAM roles to it
 
 - AmazonVPCFullAccess
 - AmazonEC2FullAccess
+
+
+![pic](img/Screenshot%20(653).png)
+
+![pic](img/Screenshot%20(654).png)
+
+![pic](img/Screenshot%20(655).png)
+
+![pic](img/Screenshot%20(656).png)
+
+![pic](img/Screenshot%20(657).png)
+
+![pic](img/Screenshot%20(658).png)
+
+![pic](img/Screenshot%20(659).png)
+
+![pic](img/Screenshot%20(660).png)
+
+![pic](img/Screenshot%20(661).png)
+
+![pic](img/Screenshot%20(662).png)
+
+![pic](img/Screenshot%20(663).png)
+
+![pic](img/Screenshot%20(664).png)
+
+![pic](img/Screenshot%20(664).png)
+
+
+![pic](img/Screenshot%20(665).png)
+
+![pic](img/)
+
+![pic](img)
+
+![pic](img)
