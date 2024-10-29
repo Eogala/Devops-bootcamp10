@@ -198,3 +198,29 @@ egress_cidr_block     = ["0.0.0.0/0"]
 ```
 
 fill it with the correct variable like this:
+
+![pic](img/)
+
+Now we can provision the AWS EC2 & Security group using Terraform.
+
+```
+cd ../prometheus-stack
+
+```
+
+
+```
+terraform fmt
+```
+
+```
+terraform init
+```
+
+```
+terraform validate
+```
+
+![pic](img)
+
+![pic](img)
