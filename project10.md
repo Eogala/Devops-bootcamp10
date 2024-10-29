@@ -121,6 +121,12 @@ We are going to spin up an ec2 instance and attach the following IAM roles to it
 
 ![pic](img/Screenshot%20(662).png)
 
+## Now create an EC2 instance, Ubuntu 22.04
+
+
+## let us the attach the role created earlier to the instance
+
+
 ![pic](img/Screenshot%20(663).png)
 
 ![pic](img/Screenshot%20(664).png)
@@ -130,10 +136,6 @@ We are going to spin up an ec2 instance and attach the following IAM roles to it
 
 ![pic](img/Screenshot%20(665).png)
 
-## Now create an EC2 instance, Ubuntu 22.04
-
-
-## let us the attach the role created earlier to the instance
 
 ![pic](img/)
 
@@ -199,7 +201,7 @@ egress_cidr_block     = ["0.0.0.0/0"]
 
 fill it with the correct variable like this:
 
-![pic](img/)
+![pic](img/Screenshot%20(667).png)
 
 Now we can provision the AWS EC2 & Security group using Terraform.
 
@@ -221,6 +223,6 @@ terraform init
 terraform validate
 ```
 
-![pic](img)
+![pic](img/Screenshot%20(676).png)
 
-![pic](img)
+![pic](img/Screenshot%20(678).png)
