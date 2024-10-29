@@ -396,7 +396,6 @@ You can access the Alertmanager dashbaord on http://your-ip-address:9093
 ![pic](img/Screenshot%20(711).png)
 
 
-![pic](img)
 
 Alert rules are already backed in to the prometheus configuration through alertrules.yaml. If you go the alerts option in the prometheus menu, you will be able to see the configured alerts as shown below.
  http://your-ip-address:9090
@@ -420,17 +419,17 @@ dd if=/dev/zero of=testfile_16GB bs=1M count=16384; openssl speed -multi $(nproc
 
 Now we can check the Alert manager UI to confirm the fired alerts.
 
-![pic](img)
+![pic](img/Screenshot%20(713).png)
 
-![pic](img)
+![pic](img/Screenshot%20(714).png)
+
 Now let’s rollback the changes and see the fired alerts has been resolved.
 
 ```
 rm testfile_16GB && kill $(pgrep openssl)
 ```
-![pic](img)
+![pic](img/Screenshot%20(727).png)
 
-![pic](img)
 # Cleanup The Setup
 To tear down the setup, execute the following terraform command from your workstation.
 ```
@@ -446,3 +445,5 @@ enter 'yes'
 ![pic](img/Screenshot%20(725).png)
 
 ## Terminate the  ec2 instances
+
+The End!
