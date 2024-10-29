@@ -301,24 +301,36 @@ If you visit http://your-public-ip-address:9090, you will be able to access the 
 
 Validate the targets, rules and configurations as shown below. The target would be Node exporter url.
 
-[text](README.md) ![text](images/prometheus1.png)
+[text](README.md)
 
-![alt text](images/prometheus2.png)
-![alt text](images/prometheus3.png)
 
-![alt text](images/prometheus4.png)
-![alt text](images/prometheus5.png)
+![pic](img/Screenshot%20(684).png)
 
-![alt text](images/prometheus6.png)
+![pic](img/Screenshot%20(685).png)
+
+![pic](img/Screenshot%20(686).png)
+
+![pic](img/Screenshot%20(687).png)
+
+![pic](img/Screenshot%20(688).png)
+
+![pic](img)
+
+
 ### validating prometheus rules and targets
 Now lets execute a promQL statement to view node_cpu_seconds_total metrics scrapped from the node exporter.
 ```
 avg by (instance,mode) (irate(node_cpu_seconds_total{mode!='idle'}[1m]))
 ```
-![alt text](images/graph.png)
+![pic](img/Screenshot%20(689).png)
+
 You should be able to data in graph as shown below.
-![alt text](images/graph2.png)
-![alt text](images/graph3.png)
+
+![pic](img/Screenshot%20(691).png)
+
+![pic](img/Screenshot%20(692).png)
+
+![pic](img/Screenshot%20(693).png)
 
 executing a promQL statement to get graph
 
@@ -332,14 +344,17 @@ Use admin as username and password to login to Grafana. You can update the passw
 Now we need to add prometheus URL as the data source from Connections→ Add new connection→ Prometheus → Add new data source.
 
 Here is the demo.
-![alt text](<images/grafana setup 1.png>)
+![pic](img)
 
-![alt text](<images/grafana setup 2.png>)
+![pic](img)
 
-![alt text](<images/grafana setup 3.png>)
-![alt text](<images/grafana setup 4.png>)
-![alt text](<images/grafana setup 5.png>)
-![alt text](<images/grafana setup 6.png>)
+![pic](img)
+
+![pic](img)
+
+![pic](img)
+
+![pic](img)
 
 
 # Configure Node Exporter Dashboard
@@ -348,27 +363,29 @@ Grafana has many node exporter pre-built templates that will give us a ready to 
 To import a dashboard, go to Dashboards –> Create Dashboard –> Import Dashboard –> Type 10180 and click load –> Select Prometheus Data source –> Import
 
 Here is the demo.
-![alt text](<images/node exporter 1.png>)
-![alt text](<images/node exporter 2.png>)
-![alt text](<images/node exporter 3.png>)
-![alt text](<images/node exporter 4.png>)
+![pic](img)
 
+![pic](img)
+
+![pic](img)
 
 
 Once the dashbaord template is imported, you should be able to see all the node exporter metrics as shown below.
 
 
-![alt text](<images/node exporter 5.png>)
+![pic](img)
 
 # Simulate & Test Alert Manager Alerts
 You can access the Alertmanager dashbaord on http://your-ip-address:9093
 
-
-![alt text](<images/alerts 1.png>)
+![pic](img)
+![alt text](<images/node exporter 5.png>)
 Alert rules are already backed in to the prometheus configuration through alertrules.yaml. If you go the alerts option in the prometheus menu, you will be able to see the configured alerts as shown below.
  http://your-ip-address:9090
-![alt text](<images/prometheus alert1.png>)
-![alt text](<images/prometheus alertt2.png>)
+
+![pic](img)
+
+![pic](img)
 
 As you can see, all the alerts are in inactive stage. To test the alerts, we need to simulate these alerts using few linux utilities.
 
@@ -384,14 +401,18 @@ dd if=/dev/zero of=testfile_16GB bs=1M count=16384; openssl speed -multi $(nproc
 ```
 
 Now we can check the Alert manager UI to confirm the fired alerts.
-![alt text](images/test1.png)
-![alt text](images/test2.png)
+
+![pic](img)
+
+![pic](img)
 Now let’s rollback the changes and see the fired alerts has been resolved.
 
 ```
 rm testfile_16GB && kill $(pgrep openssl)
 ```
-![alt text](images/test2..png)
+![pic](img)
+
+![pic](img)
 # Cleanup The Setup
 To tear down the setup, execute the following terraform command from your workstation.
 ```
@@ -402,9 +423,8 @@ cd prometheus-observability-stack/terraform-aws/prometheus-stack
 terraform destroy --var-file=../vars/ec2.tfvars
 ```
 enter 'yes'
-![alt text](images/destroy.png)
+![pic](img)
 
-![alt text](<images/destroy final.png>)
- 
+![pic](img)
 
 ## Terminate the  ec2 instances
