@@ -344,11 +344,21 @@ Use admin as username and password to login to Grafana. You can update the passw
 Now we need to add prometheus URL as the data source from Connections→ Add new connection→ Prometheus → Add new data source.
 
 Here is the demo.
-![pic](img)
 
-![pic](img)
+![pic](img/Screenshot%20(698).png)
 
-![pic](img)
+![pic](img/Screenshot%20(699).png)
+
+![pic](img/Screenshot%20(700).png)
+
+![pic](img/Screenshot%20(701).png)
+
+![pic](img/Screenshot%20(702).png)
+
+![pic](img/Screenshot%20(703).png)
+
+
+![pic](img/Screenshot%20(704).png)
 
 ![pic](img)
 
