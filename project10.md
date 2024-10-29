@@ -130,8 +130,71 @@ We are going to spin up an ec2 instance and attach the following IAM roles to it
 
 ![pic](img/Screenshot%20(665).png)
 
+## Now create an EC2 instance, Ubuntu 22.04
+
+
+## let us the attach the role created earlier to the instance
+
 ![pic](img/)
 
 ![pic](img)
 
 ![pic](img)
+
+##  Connect to your instance via ssh 
+
+- ssh into the instance
+- install terraform
+```
+sudo snap install terraform --classic
+
+```
+# Provision Server Using Terraform
+Modify the values of ec2.tfvars file present in the terraform-aws/vars folder. You need to replace the values highlighted in bold with values relevant to your AWS account & region.
+
+
+```
+cd terraform-aws/vars
+```
+If you are using us-west-2, you can continue with the same AMI ID else change the AMI ID 
+```
+vi ec2.tfvars
+```
+```
+# EC2 Instance Variables
+region         = "us-west-2"
+ami_id         = "ami-0aff18ec83b712f05"
+instance_type  = "t2.large"
+key_name       = "add keyname"
+instance_count = 1
+volume-size = 20
+
+# VPC id
+vpc_id  = "add a vpc"
+subnet_ids     = "add a subnet"
+
+# Ec2 Tags
+name        = "prometheus-stack"
+owner       = "devops-mastery"
+environment = "dev"
+cost_center = "devops-project"
+application = "monitoring"
+
+# CIDR Ingress Variables
+create_ingress_cidr        = true
+ingress_cidr_from_port     = [22, 80, 443, 9090, 9100, 9093, 3000]  # List of from ports
+ingress_cidr_to_port       = [22, 80, 443, 9090, 9100, 9093, 3000]  # List of to ports
+ingress_cidr_protocol      = ["tcp", "tcp", "tcp", "tcp", "tcp", "tcp", "tcp"]        # Protocol for all rules (you can add more if needed)
+ingress_cidr_block         = ["0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0", "0.0.0.0/0"]
+ingress_cidr_description   = ["SSH", "HTTP", "HTTPS", "Prometheus", "Node-exporter", "Alert manager", "Grafana"]
+
+# CIDR Egress Variables
+create_egress_cidr    = true
+egress_cidr_from_port = [0]
+egress_cidr_to_port   = [0]
+egress_cidr_protocol  = ["-1"]
+egress_cidr_block     = ["0.0.0.0/0"]
+
+```
+
+fill it with the correct variable like this:
