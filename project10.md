@@ -373,11 +373,17 @@ Grafana has many node exporter pre-built templates that will give us a ready to 
 To import a dashboard, go to Dashboards –> Create Dashboard –> Import Dashboard –> Type 10180 and click load –> Select Prometheus Data source –> Import
 
 Here is the demo.
-![pic](img)
+![pic](img/Screenshot%20(705).png)
 
-![pic](img)
+![pic](img/Screenshot%20(706).png)
 
-![pic](img)
+![pic](img/Screenshot%20(707).png)
+
+![pic](img/Screenshot%20(708).png)
+
+![pic](img/Screenshot%20(709).png)
+
+![pic](img/Screenshot%20(710).png)
 
 
 Once the dashbaord template is imported, you should be able to see all the node exporter metrics as shown below.
