@@ -7,7 +7,7 @@
 
 ## Prometheus Stack Architecture & Workflow
 
-![alt text](images/diagram.png)
+![pic](img/Screenshot%20(728).png)
 
 
 In our setup, we will be using the following components.
@@ -136,11 +136,6 @@ We are going to spin up an ec2 instance and attach the following IAM roles to it
 
 ![pic](img/Screenshot%20(665).png)
 
-
-![pic](img/)
-
-![pic](img)
-
 ![pic](img)
 
 ##  Connect to your instance via ssh 
@@ -230,11 +225,13 @@ terraform validate
 
 # CONNECT TO YOUR NEW INSTANCE 
 
-In previous projeect you've seen how to ssh into an instance
+In previous projeect you've seen how to ssh into an instance. 
+NOTE: the instance will appear like this
 
-![alt text](<images/connect 1.png>)
 
-![alt text](<images/connect 2.png>)
+![pic](img/Screenshot%20(729).png)
+
+
 
 - let's run the following command on our instance
 
